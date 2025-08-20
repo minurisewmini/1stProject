@@ -75,13 +75,13 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="16dp"
+        android:padding="17dp"
         android:background="@drawable/bg_card_round"
         app:layout_constraintTop_toBottomOf="@id/dotsLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintBottom_toTopOf="@id/btnNext"
-        android:layout_margin="16dp">
+        android:layout_margin="17dp">
 
         <TextView
             android:layout_height="wrap_content"
