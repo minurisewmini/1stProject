@@ -12,14 +12,25 @@
         android:layout_height="match_parent"
         android:background="#ffff">
 
-        <!-- App Logo (centered) -->
         <ImageView
             android:id="@+id/logoImage"
-            android:layout_width="250dp"
+            android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:src="@drawable/logo"
-            android:contentDescription="logo" />
+            android:contentDescription="logo"
+            android:elevation="8dp" />
+
+        <ImageView
+            android:id="@+id/bottomWallpaper"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitEnd"
+            android:maxHeight="800dp"
+            android:src="@drawable/wallpaper"
+            android:contentDescription="bottom wallpaper" />
 
     </RelativeLayout>
 

@@ -12,11 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme._1stProject">
         <activity
-            android:name=".OnboardScreen01"
+            android:name=".OnboardScreen2"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
+            android:exported="true"
+            android:label="@string/app_name"
+            android:theme="@style/Theme._1stProject">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
