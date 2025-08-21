@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme._1stProject">
         <activity
+            android:name=".SignupPage"
+            android:exported="false" />
+        <activity
+            android:name=".LoginPage"
+            android:exported="false" />
+        <activity
             android:name=".WelcomeScreen"
             android:exported="false" />
         <activity

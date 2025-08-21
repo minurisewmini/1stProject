@@ -21,8 +21,8 @@
     <!-- Illustration -->
     <ImageView
         android:id="@+id/illustration"
-        android:layout_width="333dp"
-        android:layout_height="338dp"
+        android:layout_width="342dp"
+        android:layout_height="361dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:contentDescription="Illustration"
