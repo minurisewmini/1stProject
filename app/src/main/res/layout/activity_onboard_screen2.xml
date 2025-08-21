@@ -2,17 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:orientation="vertical"
+    android:background="@android:color/white"
     android:padding="20dp">
 
-    <!-- Top back button -->
-
-    <!-- Main illustration -->
-
-    <!-- Dots indicator -->
-
-    <!-- Back Button -->
+    <!-- Top Back Button -->
     <ImageButton
         android:id="@+id/btnBack"
         android:layout_width="40dp"
@@ -21,17 +15,20 @@
         android:src="@drawable/arrow_back"
         android:contentDescription="Back"
         android:scaleType="centerInside"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:layout_margin="16dp"/>
+        android:layout_marginTop="8dp"
+        android:layout_marginStart="8dp" />
 
+    <!-- Illustration -->
     <ImageView
-        android:layout_width="400dp"
-        android:layout_height="350dp"
+        android:id="@+id/illustration"
+        android:layout_width="333dp"
+        android:layout_height="338dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
+        android:contentDescription="Illustration"
         android:src="@drawable/checklist" />
 
+    <!-- Dots Indicator -->
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -62,8 +59,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_card_round"
         android:orientation="vertical"
+        android:background="@drawable/bg_card_round"
         android:padding="17dp"
         android:layout_marginTop="25dp">
 
@@ -82,17 +79,16 @@
             android:text="Apply online and connect with verified shelters"
             android:textAlignment="center"
             android:textSize="14sp"
-            android:layout_marginTop="8dp"
+            android:textStyle="bold"
             android:textColor="#745718"
-            android:textStyle="bold"/>
+            android:layout_marginTop="8dp"/>
     </LinearLayout>
 
-    <!-- Bottom buttons -->
+    <!-- Bottom Buttons -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_gravity="bottom"
         android:layout_marginTop="40dp">
 
         <Button
@@ -100,8 +96,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#FECF6A"
             android:text="Skip"
+            android:backgroundTint="#FECF6A"
             android:layout_marginEnd="20dp"/>
 
         <Button
@@ -109,8 +105,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:backgroundTint="#F9A825"
-            android:text="Next" />
+            android:text="Next"
+            android:backgroundTint="#F9A825"/>
     </LinearLayout>
 
 </LinearLayout>
