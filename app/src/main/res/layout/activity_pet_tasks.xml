@@ -283,12 +283,15 @@
     </androidx.core.widget.NestedScrollView>
 
     <!-- Bottom Navigation -->
+    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_gravity="bottom"
         android:background="#E6E6E6"
+        app:elevation="8dp"
+        app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_bottom_nav" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
