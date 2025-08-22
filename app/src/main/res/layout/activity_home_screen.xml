@@ -62,7 +62,7 @@
                         android:layout_height="wrap_content"
                         android:text="Welcome  Minuri !!"
                         android:textColor="#1A1A1A"
-                        android:textSize="16sp"
+                        android:textSize="18dp"
                         android:textStyle="bold"
                         tools:ignore="HardcodedText"/>
 
