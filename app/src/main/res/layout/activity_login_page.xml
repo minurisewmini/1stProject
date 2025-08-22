@@ -54,7 +54,7 @@
             <ImageView
                 android:id="@+id/ivLogo"
                 android:layout_width="215dp"
-                android:layout_height="174dp"
+                android:layout_height="197dp"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="8dp"
                 android:adjustViewBounds="true"
