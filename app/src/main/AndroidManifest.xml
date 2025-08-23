@@ -11,11 +11,18 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme._1stProject">
+        <activity
+            android:name=".OnboardScreen3"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
 
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".OnboardScreen01"
             android:exported="false" />
-
         <activity
             android:name=".PetProfile"
             android:exported="false" />
@@ -37,15 +44,6 @@
         <activity
             android:name=".WelcomeScreen"
             android:exported="false" />
-        <activity
-            android:name=".OnboardScreen3"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".OnboardScreen2"
             android:exported="false" />

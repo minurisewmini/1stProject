@@ -64,11 +64,12 @@
                     android:src="@android:drawable/ic_input_add"
                     android:contentDescription="@string/add"
                     android:background="@android:color/transparent"
-                    app:tint="@null"
-                    android:scaleType="fitCenter"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent"/>
+                    app:tint="#FFA500"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -300,6 +301,7 @@
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
+    <!-- Bottom Navigation always pinned -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
@@ -307,6 +309,5 @@
         android:layout_gravity="bottom"
         android:background="@color/white"
         app:elevation="8dp"
-        app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_bottom_nav" />
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,20 +1,29 @@
 package com.example.a1stproject
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.button.MaterialButton
 
 class WelcomeScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
-        setContentView(R.layout.activity_welcome_screen)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.mainLayout)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+        setContentView(R.layout.activity_welcome_screen) // your welcome screen XML
+
+        // Find views
+        val loginBtn = findViewById<MaterialButton>(R.id.loginBtn)
+        val signupBtn = findViewById<MaterialButton>(R.id.signupBtn)
+
+        // Navigate to LoginPage
+        loginBtn.setOnClickListener {
+            val intent = Intent(this, LoginPage::class.java)
+            startActivity(intent)
+        }
+
+        // Navigate to SignupPage
+        signupBtn.setOnClickListener {
+            val intent = Intent(this, SignupPage::class.java)
+            startActivity(intent)
         }
     }
 }

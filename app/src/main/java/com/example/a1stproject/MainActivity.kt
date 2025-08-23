@@ -2,6 +2,8 @@ package com.example.a1stproject
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
@@ -14,12 +16,7 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
 
-        // Root layout reference
         val mainLayout = findViewById<ConstraintLayout>(R.id.mainLayout)
-
-        // Make sure layout is clickable
-        mainLayout.isClickable = true
-        mainLayout.isFocusable = true
 
         // Apply system bars padding
         ViewCompat.setOnApplyWindowInsetsListener(mainLayout) { v, insets ->
@@ -28,11 +25,11 @@ class MainActivity : AppCompatActivity() {
             insets
         }
 
-        // Click listener to open OnboardScreen01
-        mainLayout.setOnClickListener {
+        // Auto-redirect after 2 seconds
+        Handler(Looper.getMainLooper()).postDelayed({
             val intent = Intent(this, OnboardScreen01::class.java)
             startActivity(intent)
-            finish() // optional if you don't want to return to MainActivity
-        }
+            finish() // Close splash so user can't go back
+        }, 2000) // delay in milliseconds (2000 = 2 sec)
     }
 }

@@ -1,20 +1,41 @@
 package com.example.a1stproject
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+import com.google.android.material.button.MaterialButton
+import android.widget.ImageButton
 
 class OnboardScreen2 : AppCompatActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
         setContentView(R.layout.activity_onboard_screen2)
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.mainLayout)) { v, insets ->
-            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
-            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
-            insets
+
+        // Buttons
+        val btnNext: MaterialButton = findViewById(R.id.btn_next)
+        val btnSkip: MaterialButton = findViewById(R.id.btn_skip)
+        val btnBack: ImageButton = findViewById(R.id.btnBack)
+
+        // Next button -> OnboardScreen3
+        btnNext.setOnClickListener {
+            val intent = Intent(this, OnboardScreen3::class.java)
+            startActivity(intent)
+            finish() // optional, remove this screen from back stack
+        }
+
+        // Skip button -> OnboardScreen3
+        btnSkip.setOnClickListener {
+            val intent = Intent(this, OnboardScreen3::class.java)
+            startActivity(intent)
+            finish()
+        }
+
+        // Back button -> OnboardScreen1
+        btnBack.setOnClickListener {
+            val intent = Intent(this, OnboardScreen01::class.java)
+            startActivity(intent)
+            finish()
         }
     }
 }
