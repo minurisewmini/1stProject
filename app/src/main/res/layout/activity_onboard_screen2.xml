@@ -1,112 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:background="@android:color/white"
-    android:padding="20dp">
+    android:background="@color/primarySurface">
 
-    <!-- Top Back Button -->
     <ImageButton
         android:id="@+id/btnBack"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:background="@drawable/circle_background"
         android:src="@drawable/arrow_back"
-        android:contentDescription="Back"
-        android:scaleType="centerInside"
-        android:layout_marginTop="8dp"
-        android:layout_marginStart="8dp" />
+        app:tint="@color/textPrimary"
+        android:contentDescription="@string/back"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_margin="16dp"/>
 
-    <!-- Illustration -->
     <ImageView
         android:id="@+id/illustration"
-        android:layout_width="342dp"
-        android:layout_height="361dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:contentDescription="Illustration"
-        android:src="@drawable/checklist" />
+        android:layout_width="337dp"
+        android:layout_height="388dp"
+        android:layout_margin="16dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="@string/onboard_pet"
+        android:scaleType="fitCenter"
+        android:src="@drawable/checklist"
+        app:layout_constraintBottom_toTopOf="@id/dots"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnBack" />
 
-    <!-- Dots Indicator -->
     <LinearLayout
+        android:id="@+id/dots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:gravity="center"
+        app:layout_constraintTop_toBottomOf="@id/illustration"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
 
-        <View
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:background="@drawable/dot_inactive"
-            android:layout_margin="5dp"/>
-
-        <View
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:background="@drawable/dot_active"
-            android:layout_margin="5dp"/>
-
-        <View
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:background="@drawable/dot_inactive"
-            android:layout_margin="5dp"/>
+        <View android:layout_width="10dp" android:layout_height="10dp" android:layout_margin="5dp" android:background="@drawable/dot_inactive"/>
+        <View android:layout_width="10dp" android:layout_height="10dp" android:layout_margin="5dp" android:background="@drawable/dot_active"/>
+        <View android:layout_width="10dp" android:layout_height="10dp" android:layout_margin="5dp" android:background="@drawable/dot_inactive"/>
     </LinearLayout>
 
-    <!-- Rounded Rectangle Card for Text -->
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
+        android:id="@+id/infoCard"
+        android:layout_width="391dp"
+        android:layout_height="104dp"
+        android:layout_margin="16dp"
+        android:layout_marginTop="32dp"
         android:background="@drawable/bg_card_round"
+        android:orientation="vertical"
         android:padding="17dp"
-        android:layout_marginTop="25dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dots">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Adoption Made Easy"
-            android:textAlignment="center"
+            android:gravity="center"
+            android:text="@string/onboard_title_2"
+            android:textColor="@color/textPrimary"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:textColor="@android:color/black"/>
+            android:textStyle="bold" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Apply online and connect with verified shelters"
-            android:textAlignment="center"
-            android:textSize="14sp"
-            android:textStyle="bold"
-            android:textColor="#745718"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="6dp"
+            android:gravity="center"
+            android:text="@string/onboard_desc_2"
+            android:textColor="@color/textSecondary"
+            android:textSize="14sp" />
     </LinearLayout>
 
-    <!-- Bottom Buttons -->
     <LinearLayout
-        android:layout_width="match_parent"
+        android:id="@+id/bottomButtons"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="40dp">
+        android:paddingHorizontal="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginBottom="20dp">
 
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_skip"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="Skip"
-            android:backgroundTint="#FECF6A"
-            android:layout_marginEnd="20dp"/>
+            android:text="@string/skip"
+            android:textColor="@color/textPrimary"
+            android:textAllCaps="false"
+            app:cornerRadius="24dp"
+            app:backgroundTint="@color/colorSecondary"/>
 
-        <Button
+        <Space android:layout_width="12dp" android:layout_height="48dp"/>
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_next"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="48dp"
             android:layout_weight="1"
-            android:text="Next"
-            android:backgroundTint="#F9A825"/>
+            android:text="@string/next"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="24dp"
+            app:backgroundTint="@color/colorPrimary"/>
     </LinearLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

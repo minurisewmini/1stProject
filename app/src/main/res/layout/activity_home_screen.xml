@@ -6,17 +6,16 @@
     android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/primarySurface"
     android:fitsSystemWindows="true"
-    android:background="#F7F8F8">
+    tools:context=".HomeScreen">
 
-    <!-- App bar with header, search and tabs -->
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:fitsSystemWindows="true"
-        android:elevation="0dp">
+        android:background="@color/white"
+        app:liftOnScroll="true">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -25,7 +24,7 @@
             android:paddingTop="12dp"
             android:paddingBottom="8dp">
 
-            <!-- Header row -->
+            <!-- Header -->
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/headerRow"
                 android:layout_width="match_parent"
@@ -33,63 +32,44 @@
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp">
 
-                <com.google.android.material.imageview.ShapeableImageView
+                <ImageView
                     android:id="@+id/ivAvatar"
                     android:layout_width="44dp"
                     android:layout_height="44dp"
-                    android:contentDescription="@string/app_name"
+                    android:contentDescription="@string/app_logo"
                     android:scaleType="centerCrop"
                     android:src="@drawable/profilepic"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <LinearLayout
-                    android:id="@+id/nameLocation"
+                <TextView
+                    android:id="@+id/tvGreeting"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:orientation="vertical"
-                    app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+                    android:text="@string/home_greeting"
+                    android:textColor="@color/textPrimary"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
                     app:layout_constraintStart_toEndOf="@id/ivAvatar"
+                    app:layout_constraintEnd_toStartOf="@id/btnAdd"
                     app:layout_constraintTop_toTopOf="@id/ivAvatar"
-                    app:layout_constraintEnd_toStartOf="@id/btnBell"
-                    app:layout_goneMarginEnd="12dp">
+                    app:layout_constraintBottom_toBottomOf="@id/ivAvatar"
+                    android:layout_marginStart="12dp"/>
 
-                    <TextView
-                        android:id="@+id/tvGreeting"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Welcome  Minuri !!"
-                        android:textColor="#1A1A1A"
-                        android:textSize="18dp"
-                        android:textStyle="bold"
-                        tools:ignore="HardcodedText"/>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal"
-                        android:paddingTop="2dp">
-
-                    </LinearLayout>
-                </LinearLayout>
-
-                <FrameLayout
-                    android:id="@+id/btnBell"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
+                <ImageButton
+                    android:id="@+id/btnAdd"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/plus"
+                    android:contentDescription="@string/add"
+                    android:background="@android:color/transparent"
+                    app:tint="@null"
+                    android:scaleType="fitCenter"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintBottom_toBottomOf="parent">
+                    app:layout_constraintBottom_toBottomOf="parent"/>
 
-                    <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="70dp"
-                        android:layout_gravity="center"
-                        android:src="@drawable/plus"/>
-                </FrameLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <!-- Search -->
@@ -100,24 +80,28 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:layout_marginEnd="16dp"
-                android:hint="Search"
-                app:boxBackgroundColor="#1A1A1A"
+                android:hint="@string/search"
+                app:boxBackgroundMode="filled"
+                app:boxBackgroundColor="@color/fieldFill"
                 app:boxCornerRadiusTopStart="24dp"
                 app:boxCornerRadiusTopEnd="24dp"
                 app:boxCornerRadiusBottomStart="24dp"
                 app:boxCornerRadiusBottomEnd="24dp"
-                app:startIconTint="#8E8E93">
+                app:startIconTint="@color/textSecondary">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:layout_width="match_parent"
                     android:layout_height="48dp"
                     android:background="@android:color/transparent"
                     android:inputType="text"
+                    android:imeOptions="actionSearch"
+                    android:textColor="@color/textPrimary"
+                    android:textColorHint="@color/textSecondary"
                     android:paddingTop="8dp"
                     android:paddingBottom="8dp"/>
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!-- Category tabs -->
+            <!-- Tabs -->
             <com.google.android.material.tabs.TabLayout
                 android:id="@+id/tabCategories"
                 android:layout_width="match_parent"
@@ -125,35 +109,28 @@
                 android:layout_marginHorizontal="8dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginBottom="4dp"
-                app:tabIndicatorColor="#FDA90D"
+                app:tabIndicatorColor="@color/colorPrimary"
                 app:tabIndicatorFullWidth="false"
                 app:tabMode="fixed"
                 app:tabRippleColor="@android:color/transparent"
-                app:tabSelectedTextColor="#FDA90D"
-                app:tabTextColor="#8E8E93">
+                app:tabSelectedTextColor="@color/colorPrimary"
+                app:tabTextColor="@color/textSecondary">
 
-                <com.google.android.material.tabs.TabItem
-                    android:text="Dogs" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:text="Cats" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:text="Rabbits" />
-
-                <com.google.android.material.tabs.TabItem
-                    android:text="Fish" />
+                <com.google.android.material.tabs.TabItem android:text="@string/tab_dogs"/>
+                <com.google.android.material.tabs.TabItem android:text="@string/tab_cats"/>
+                <com.google.android.material.tabs.TabItem android:text="@string/tab_rabbits"/>
+                <com.google.android.material.tabs.TabItem android:text="@string/tab_fish"/>
             </com.google.android.material.tabs.TabLayout>
         </LinearLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Scrollable content -->
+    <!-- Content -->
     <androidx.core.widget.NestedScrollView
         android:id="@+id/scroll"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:clipToPadding="false"
-        android:paddingBottom="72dp"
+        android:paddingBottom="80dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
@@ -161,6 +138,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <!-- Puppy row -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -171,141 +149,163 @@
                 android:gravity="center_vertical">
 
                 <TextView
-                    android:id="@+id/tvMediumPuppy"
+                    android:id="@+id/tvPuppy"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Puppy"
-                    android:textColor="#1A1A1A"
+                    android:text="@string/puppy"
+                    android:textColor="@color/textPrimary"
                     android:textStyle="bold"
                     android:textSize="18sp"/>
 
                 <TextView
-                    android:id="@+id/btnShowAll"
+                    android:id="@+id/btnShowAllPuppy"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SHOW ALL"
+                    android:text="@string/show_all"
                     android:textAllCaps="true"
-                    android:textColor="#1A1A1A"
-                    android:textSize="10sp"/>
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp"/>
             </LinearLayout>
 
-            <GridLayout
-                android:layout_width="wrap_content"
+            <HorizontalScrollView
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="10"
-                android:padding="8dp"
-                android:layout_gravity="center">
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:overScrollMode="ifContentScrolls">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="179dp"
-                    android:layout_margin="8dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/labrador" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="8dp">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="178dp"
-                    android:layout_margin="8dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/dogg1" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardUseCompatPadding="true">
+                        <ImageView android:layout_width="match_parent" android:layout_height="180dp" android:scaleType="centerCrop" android:src="@drawable/labrador" android:contentDescription="@string/cd_pet_image"/>
+                    </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="174dp"
-                    android:layout_margin="8dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/kenn" />
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardUseCompatPadding="true">
+                        <ImageView android:layout_width="match_parent" android:layout_height="180dp" android:scaleType="centerCrop" android:src="@drawable/dogg1" android:contentDescription="@string/cd_pet_image"/>
+                    </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="172dp"
-                    android:layout_row="0"
-                    android:layout_column="3"
-                    android:layout_margin="8dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/beagle" />
-            </GridLayout>
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardUseCompatPadding="true">
+                        <ImageView android:layout_width="match_parent" android:layout_height="180dp" android:scaleType="centerCrop" android:src="@drawable/kenn" android:contentDescription="@string/cd_pet_image"/>
+                    </com.google.android.material.card.MaterialCardView>
 
+                    <com.google.android.material.card.MaterialCardView
+                        android:layout_width="140dp"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="8dp"
+                        app:cardCornerRadius="16dp"
+                        app:cardUseCompatPadding="true">
+                        <ImageView android:layout_width="match_parent" android:layout_height="180dp" android:scaleType="centerCrop" android:src="@drawable/beagle" android:contentDescription="@string/cd_pet_image"/>
+                    </com.google.android.material.card.MaterialCardView>
+
+                </LinearLayout>
+            </HorizontalScrollView>
+
+            <!-- Adult grid -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:paddingStart="16dp"
                 android:paddingEnd="16dp"
+                android:paddingTop="8dp"
                 android:gravity="center_vertical">
 
-                <!-- Left TextView -->
                 <TextView
-                    android:id="@+id/tvMedium"
+                    android:id="@+id/tvAdult"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Adult"
-                    android:textColor="#1A1A1A"
+                    android:text="@string/adult"
+                    android:textColor="@color/textPrimary"
                     android:textStyle="bold"
                     android:textSize="18sp"/>
 
-                <!-- Right TextView -->
                 <TextView
-                    android:id="@+id/btnSmallAll"
+                    android:id="@+id/btnShowAllAdult"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="SHOW ALL"
+                    android:text="@string/show_all"
                     android:textAllCaps="true"
-                    android:textColor="#1A1A1A"
-                    android:textSize="10sp"/>
-
+                    android:textColor="@color/textSecondary"
+                    android:textSize="12sp"/>
             </LinearLayout>
 
-
             <GridLayout
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:columnCount="10"
-                android:padding="8dp"
-                android:layout_gravity="center"
-                >
+                android:columnCount="2"
+                android:useDefaultMargins="true"
+                android:padding="8dp">
 
-                <ImageView
-                    android:layout_width="97dp"
-                    android:layout_height="202dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/golden" />
+                    app:cardCornerRadius="16dp"
+                    app:cardUseCompatPadding="true">
+                    <ImageView android:layout_width="match_parent" android:layout_height="200dp" android:scaleType="centerCrop" android:src="@drawable/golden" android:contentDescription="@string/cd_pet_image"/>
+                </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:layout_width="120dp"
-                    android:layout_height="201dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/doggy1" />
+                    app:cardCornerRadius="16dp"
+                    app:cardUseCompatPadding="true">
+                    <ImageView android:layout_width="match_parent" android:layout_height="200dp" android:scaleType="centerCrop" android:src="@drawable/doggy1" android:contentDescription="@string/cd_pet_image"/>
+                </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="198dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/doggy2" />
+                    app:cardCornerRadius="16dp"
+                    app:cardUseCompatPadding="true">
+                    <ImageView android:layout_width="match_parent" android:layout_height="200dp" android:scaleType="centerCrop" android:src="@drawable/doggy2" android:contentDescription="@string/cd_pet_image"/>
+                </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="200dp"
+                <com.google.android.material.card.MaterialCardView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_columnWeight="1"
                     android:layout_margin="8dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/kenn" />
+                    app:cardCornerRadius="16dp"
+                    app:cardUseCompatPadding="true">
+                    <ImageView android:layout_width="match_parent" android:layout_height="200dp" android:scaleType="centerCrop" android:src="@drawable/kenn" android:contentDescription="@string/cd_pet_image"/>
+                </com.google.android.material.card.MaterialCardView>
             </GridLayout>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- ✅ Bottom navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_gravity="bottom"
-        android:background="#E6E6E6"
+        android:background="@color/white"
         app:elevation="8dp"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_bottom_nav" />

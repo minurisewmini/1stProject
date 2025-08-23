@@ -1,39 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    tools:context=".OnboardScreen3">
+    android:background="@color/primarySurface">
 
-    <!-- Back Button -->
     <ImageButton
         android:id="@+id/btnBack"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:background="@drawable/circle_background"
         android:src="@drawable/arrow_back"
-        android:contentDescription="Back"
-        android:scaleType="centerInside"
+        app:tint="@color/textPrimary"
+        android:contentDescription="@string/back"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         android:layout_margin="16dp"/>
 
-    <!-- Dog Image -->
     <ImageView
         android:id="@+id/imgDog"
         android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_height="380dp"
         android:src="@drawable/feeding"
-        android:contentDescription="Dog"
+        android:contentDescription="@string/onboard_pet"
         android:adjustViewBounds="true"
+        android:scaleType="fitCenter"
         app:layout_constraintTop_toBottomOf="@id/btnBack"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp"/>
+        app:layout_constraintBottom_toTopOf="@id/indicatorLayout"
+        android:layout_margin="16dp"/>
 
-    <!-- Indicator Dots -->
     <LinearLayout
         android:id="@+id/indicatorLayout"
         android:layout_width="wrap_content"
@@ -43,32 +41,17 @@
         app:layout_constraintTop_toBottomOf="@id/imgDog"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
+        android:layout_marginTop="12dp"
+        android:contentDescription="@string/onboard_dots_cd">
 
-        <View
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/dot_inactive" />
-
-        <View
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/dot_inactive" />
-
-        <View
-            android:layout_width="10dp"
-            android:layout_height="10dp"
-            android:layout_margin="5dp"
-            android:background="@drawable/dot_active" />
-
+        <View android:layout_width="10dp" android:layout_height="10dp" android:layout_margin="5dp" android:background="@drawable/dot_inactive"/>
+        <View android:layout_width="10dp" android:layout_height="10dp" android:layout_margin="5dp" android:background="@drawable/dot_inactive"/>
+        <View android:layout_width="10dp" android:layout_height="10dp" android:layout_margin="5dp" android:background="@drawable/dot_active"/>
     </LinearLayout>
 
-    <!-- Title + Subtitle -->
     <LinearLayout
         android:id="@+id/textContainer"
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="20dp"
@@ -76,45 +59,40 @@
         app:layout_constraintTop_toBottomOf="@id/indicatorLayout"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="20dp">
+        android:layout_margin="16dp">
 
         <TextView
             android:id="@+id/txtTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Daily Pet Care Tips"
+            android:text="@string/onboard_title_3"
             android:textSize="22sp"
             android:textStyle="bold"
-            android:textColor="@android:color/black"
+            android:textColor="@color/textPrimary"
             android:layout_gravity="center_horizontal"/>
 
         <TextView
             android:id="@+id/txtSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Get feeding reminders and vet visit alerts"
+            android:text="@string/onboard_desc_3"
             android:textSize="14sp"
-            android:textColor="#745718"
-            android:textStyle="bold"
+            android:textColor="@color/textSecondary"
             android:layout_marginTop="5dp"
             android:layout_gravity="center_horizontal"/>
-
     </LinearLayout>
 
-    <!-- Get Started Button -->
-    <Button
+    <com.google.android.material.button.MaterialButton
         android:id="@+id/btnGetStarted"
         android:layout_width="250dp"
-        android:layout_height="60dp"
-        android:text="Get Started"
-        android:textColor="@android:color/white"
+        android:layout_height="56dp"
+        android:text="@string/get_started"
+        android:textColor="@color/white"
         android:textStyle="bold"
-        android:backgroundTint="#FFA500"
-        android:drawableEnd="@drawable/baseline_pets_24"
-        android:drawablePadding="10dp"
-        android:layout_marginTop="20dp"
+        app:cornerRadius="28dp"
+        app:backgroundTint="@color/colorPrimary"
         app:layout_constraintTop_toBottomOf="@id/textContainer"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="20dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

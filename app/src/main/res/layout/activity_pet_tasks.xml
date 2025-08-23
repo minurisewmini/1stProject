@@ -2,16 +2,18 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF">
+    android:background="@color/primarySurface"
+    tools:context=".PetTasks">
 
-    <!-- App Bar -->
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:elevation="0dp">
+        android:background="@color/white"
+        app:liftOnScroll="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,280 +21,214 @@
             android:paddingStart="16dp"
             android:paddingEnd="16dp">
 
-            <ImageView
-                android:id="@+id/ivMenu"
+            <TextView
+                android:id="@+id/tvTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@string/tasks_title"
+                android:textColor="@color/textPrimary"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@id/btnSearch"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"/>
+
+            <ImageButton
+                android:id="@+id/btnSearch"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/search"
+                android:contentDescription="@string/search"
+                android:background="@android:color/transparent"
+                app:tint="@null"
+                android:scaleType="fitCenter"
+                app:layout_constraintEnd_toStartOf="@id/btnMenu"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_marginEnd="8dp"/>
+
+
+
+            <ImageButton
+                android:id="@+id/btnMenu"
                 android:layout_width="24dp"
                 android:layout_height="24dp"
                 android:src="@drawable/menu"
-                app:tint="#111111"
-                app:layout_constraintBottom_toBottomOf="parent"
+                android:contentDescription="@string/more_options"
+                android:background="@android:color/transparent"
+                app:tint="@null"
+                android:scaleType="fitCenter"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.843" />
+                app:layout_constraintBottom_toBottomOf="parent"/>
 
-            <TextView
-                android:id="@+id/tvTitle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="Today's Tasks"
-                android:textColor="#111111"
-                android:textSize="24sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="1.0" />
-
-            <ImageView
-                android:id="@+id/ivSearch"
-                android:layout_width="24dp"
-                android:layout_height="24dp"
-                android:layout_marginEnd="8dp"
-                android:src="@drawable/search"
-                app:tint="#111111"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@+id/ivMenu"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.843" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Scroll Content -->
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:padding="12dp"
+        android:padding="16dp"
+        android:clipToPadding="false"
+        android:paddingBottom="84dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:dividerPadding="8dp">
+            android:orientation="vertical">
 
-            <!-- Task Card 1 -->
-            <LinearLayout
+            <!-- Feed -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardFeed"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:orientation="horizontal"
-                android:background="#FFD699"
-                android:padding="10dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:gravity="center_vertical"
-                android:elevation="2dp"
-                android:clipToPadding="false"
-                android:layout_marginHorizontal="6dp"
-                android:backgroundTintMode="src_over"
-                android:backgroundTint="@null"
-                android:clipToOutline="true">
-
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/bowl" />
+                app:cardCornerRadius="16dp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/colorSecondary"
+                android:clickable="true"
+                android:focusable="true">
 
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingStart="10dp">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Feed your pet"
-                        android:textSize="20sp"
-                        android:textStyle="bold"
-                        android:textColor="#111111"/>
+                    <ImageView
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/bowl"
+                        android:contentDescription="@string/cd_bowl"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <LinearLayout
+                        android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:text="Schedule"
-                        android:textSize="16sp"
-                        android:textColor="#E53935"
-                        android:textStyle="bold"/>
+                        android:layout_weight="1"
+                        android:orientation="vertical"
+                        android:paddingStart="12dp">
+
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/feed_pet" android:textColor="@color/textPrimary" android:textSize="18sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/schedule" android:textColor="@color/errorRed" android:textSize="14sp" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/redright"
+                        app:tint="@color/design_default_color_error"
+                        android:contentDescription="@string/cd_arrow"/>
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/redright" />
-            </LinearLayout>
-
-            <!-- Task Card 2 -->
-            <LinearLayout
+            <!-- Walk -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardWalk"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:orientation="horizontal"
-                android:background="#E0E0E0"
-                android:padding="10dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:gravity="center_vertical">
-
-                <ImageView
-                    android:layout_width="70dp"
-                    android:layout_height="70dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/walkpet" />
+                app:cardCornerRadius="16dp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/chipBg"
+                android:clickable="true"
+                android:focusable="true">
 
                 <LinearLayout
-                    android:layout_width="240dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingStart="10dp">
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="12dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Walk your pet"
-                        android:textColor="#111111"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
+                    <ImageView android:layout_width="64dp" android:layout_height="64dp" android:scaleType="centerCrop" android:src="@drawable/walkpet" android:contentDescription="@string/cd_walk"/>
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Morning\nEvening"
-                        android:textColor="#E53935"
-                        android:textSize="16sp"
-                        android:textStyle="bold"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:paddingStart="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/walk_pet" android:textColor="@color/textPrimary" android:textSize="18sp" android:textStyle="bold"/>
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/morning_evening" android:textColor="@color/errorRed" android:textSize="14sp" android:textStyle="bold"/>
+                    </LinearLayout>
+
+                    <ImageView android:layout_width="30dp"
+                                android:layout_height="30dp"
+                                android:src="@drawable/blackright"
+                                app:tint="@color/textPrimary"
+                                android:contentDescription="@string/cd_arrow"/>
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/blackright" />
-            </LinearLayout>
-
-            <!-- Task Card 3 -->
-            <LinearLayout
+            <!-- Clean Bedding -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardBedding"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:orientation="horizontal"
-                android:background="#FFD699"
-                android:padding="10dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:gravity="center_vertical"
-                android:elevation="2dp"
-                android:clipToPadding="false"
-                android:layout_marginHorizontal="6dp"
-                android:backgroundTintMode="src_over"
-                android:backgroundTint="@null"
-                android:clipToOutline="true">
+                app:cardCornerRadius="16dp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/colorSecondary"
+                android:clickable="true"
+                android:focusable="true">
 
-                <ImageView
-                    android:layout_width="100dp"
-                    android:layout_height="80dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/Picture28" />
-
-                <LinearLayout
-                    android:layout_width="231dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingStart="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Clean Bedding"
-                        android:textColor="#111111"
-                        android:textSize="22sp"
-                        android:textStyle="bold" />
-
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:padding="12dp">
+                    <ImageView android:layout_width="72dp" android:layout_height="72dp" android:scaleType="centerCrop" android:src="@drawable/picture28" android:contentDescription="@string/cd_bedding"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:paddingStart="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/clean_bedding" android:textColor="@color/textPrimary" android:textSize="18sp" android:textStyle="bold"/>
+                    </LinearLayout>
+                    <ImageView android:layout_width="30dp" android:layout_height="30dp" android:src="@drawable/redright" app:tint="@color/design_default_color_error" android:contentDescription="@string/cd_arrow"/>
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/redright" />
-            </LinearLayout>
-
-            <!-- Task Card 2 -->
-            <LinearLayout
+            <!-- Refill water -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/cardWater"
                 android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:orientation="horizontal"
-                android:background="#E0E0E0"
-                android:padding="10dp"
+                android:layout_height="wrap_content"
                 android:layout_marginBottom="12dp"
-                android:gravity="center_vertical">
+                app:cardCornerRadius="16dp"
+                app:cardUseCompatPadding="true"
+                app:cardBackgroundColor="@color/chipBg"
+                android:clickable="true"
+                android:focusable="true">
 
-                <ImageView
-                    android:layout_width="80dp"
-                    android:layout_height="90dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/Picture29" />
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:orientation="vertical"
-                    android:paddingStart="10dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Refill water bowl"
-                        android:textSize="22sp"
-                        android:textStyle="bold"
-                        android:textColor="#111111"/>
-
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:gravity="center_vertical" android:padding="12dp">
+                    <ImageView android:layout_width="72dp" android:layout_height="72dp" android:scaleType="centerCrop" android:src="@drawable/picture29" android:contentDescription="@string/cd_water"/>
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:paddingStart="12dp">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/refill_water" android:textColor="@color/textPrimary" android:textSize="18sp" android:textStyle="bold"/>
+                    </LinearLayout>
+                    <ImageView android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:src="@drawable/blackright"
+                        app:tint="@color/textPrimary"
+                        android:contentDescription="@string/cd_arrow"/>
                 </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                <ImageView
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:src="@drawable/blackright" />
-            </LinearLayout>
-
-            <!-- Repeat similar layout for Clean Bedding & Refill Water Bowl -->
-
-            <!-- Progress Section -->
-            <LinearLayout
+            <!-- Progress -->
+            <com.google.android.material.card.MaterialCardView
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
+                android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:gravity="center"
-                android:background="@drawable/border_black"
-                android:orientation="vertical">
+                app:cardCornerRadius="16dp"
+                app:cardUseCompatPadding="true">
 
-                <ImageView
-                    android:layout_width="140dp"
-                    android:layout_height="130dp"
-                    android:scaleType="centerCrop"
-                    android:src="@drawable/Picture30" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:text="You completed 2/4 tasks today"
-                    android:textColor="#E53935"
-                    android:textSize="18dp"
-                    android:textStyle="bold" />
-            </LinearLayout>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="16dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/tasks_progress_label" android:textColor="@color/textPrimary" android:textSize="16sp" android:textStyle="bold"/>
+                    <ProgressBar style="?android:attr/progressBarStyleHorizontal" android:layout_width="match_parent" android:layout_height="10dp" android:layout_marginTop="8dp" android:progress="50" android:max="100" android:progressTint="@color/colorPrimary" android:progressBackgroundTint="@color/divider"/>
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
         </LinearLayout>
     </androidx.core.widget.NestedScrollView>
 
-    <!-- Bottom Navigation -->
-    <!-- Bottom Navigation -->
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottomNav"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:layout_gravity="bottom"
-        android:background="#E6E6E6"
+        android:background="@color/white"
         app:elevation="8dp"
         app:labelVisibilityMode="labeled"
         app:menu="@menu/menu_bottom_nav" />
-
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

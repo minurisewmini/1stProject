@@ -1,5 +1,20 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- 60-30-10 -->
+    <color name="primarySurface">#FFFFFF</color>      <!-- 60% backgrounds -->
+    <color name="colorPrimary">#FFA500</color>        <!-- 30% brand orange -->
+    <color name="colorSecondary">#FECF6A</color>      <!-- 30% supporting yellow -->
+    <color name="colorAccent">#6BCB77</color>         <!-- 10% accent (chips/success) -->
+
+    <!-- Neutrals -->
+    <color name="textPrimary">#111111</color>
+    <color name="textSecondary">#333333</color>
+    <color name="divider">#E5E7EB</color>
+    <color name="chipBg">#F1F5F9</color>
+    <color name="fieldFill">#ECECEC</color>
+    <color name="link">#1565C0</color>
+
+    <!-- Utility -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="errorRed">#FF6B6B</color>
 </resources>

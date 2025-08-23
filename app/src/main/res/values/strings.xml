@@ -1,3 +1,114 @@
 <resources>
-    <string name="app_name">1st Project</string>
+    <string name="app_name">WOOF</string>
+
+    <!-- Common -->
+    <string name="back">Back</string>
+    <string name="next">Next</string>
+    <string name="skip">Skip</string>
+    <string name="get_started">Get Started</string>
+    <string name="add">Add</string>
+    <string name="search">Search</string>
+    <string name="more_options">More options</string>
+
+    <!-- Splash / assets -->
+    <string name="app_logo">App Logo</string>
+    <string name="bottom_wallpaper">Bottom wallpaper</string>
+
+    <!-- Onboarding -->
+    <string name="onboard_title_1">Find Your Perfect Pet</string>
+    <string name="onboard_desc_1">Browse hundreds of adoptable pets near you</string>
+    <string name="onboard_title_2">Adoption Made Easy</string>
+    <string name="onboard_desc_2">Apply online and connect with verified shelters</string>
+    <string name="onboard_title_3">Daily Pet Care Tips</string>
+    <string name="onboard_desc_3">Get feeding reminders and vet visit alerts</string>
+    <string name="onboard_pet">Onboarding illustration</string>
+    <string name="onboard_dots_cd">Onboarding progress</string>
+
+    <!-- Welcome -->
+    <string name="welcome_to">Welcome to</string>
+    <string name="tagline">Adopt Love, Share Care</string>
+    <string name="welcome_sub">Find your perfect furry friend and learn how to care for them with love</string>
+    <string name="paw_cd">Paw decoration</string>
+
+    <!-- Auth -->
+    <string name="login_title">Log in</string>
+    <string name="login_sub">Ready to find a new best friend?</string>
+    <string name="signup_title">Sign Up</string>
+    <string name="signup_sub">Create an account to find your new best friend</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="forgot_password">Forgot your password</string>
+    <string name="or_sep">- OR -</string>
+    <string name="continue_google">Continue with Google</string>
+    <string name="no_account">Don’t have an account?</string>
+    <string name="have_account">Already have an account?</string>
+    <string name="login">Log in</string>
+    <string name="signup">Sign up</string>
+
+
+    <!-- Home -->
+    <string name="home_greeting">Welcome !!</string>
+    <string name="tab_dogs">Dogs</string>
+    <string name="tab_cats">Cats</string>
+    <string name="tab_rabbits">Rabbits</string>
+    <string name="tab_fish">Fish</string>
+    <string name="puppy">Puppy</string>
+    <string name="adult">Adult</string>
+    <string name="show_all">Show all</string>
+    <string name="cd_pet_image">Pet image</string>
+
+    <!-- Care Tips -->
+    <string name="care_tips_title">Pet Care Tips</string>
+    <string name="grooming_tips">Grooming Tips</string>
+    <string name="grooming_desc">Bathing • Brushing • Nail care</string>
+    <string name="feeding_guides">Feeding Guides</string>
+    <string name="feeding_desc">Puppy • Adult • Senior</string>
+    <string name="videos_articles">Videos &amp; Articles</string>
+    <string name="media_desc">Videos • Images</string>
+    <string name="cd_grooming_image">Grooming illustration</string>
+    <string name="cd_feeding_image">Feeding illustration</string>
+    <string name="cd_media_image">Media illustration</string>
+
+    <!-- Tasks -->
+    <string name="tasks_title">Today&apos;s Tasks</string>
+    <string name="feed_pet">Feed your pet</string>
+    <string name="schedule">Schedule</string>
+    <string name="walk_pet">Walk your pet</string>
+    <string name="morning_evening">Morning • Evening</string>
+    <string name="clean_bedding">Clean Bedding</string>
+    <string name="refill_water">Refill water bowl</string>
+    <string name="tasks_progress_label">You completed 2/4 tasks today</string>
+    <string name="cd_bowl">Food bowl</string>
+    <string name="cd_walk">Walk icon</string>
+    <string name="cd_bedding">Bedding icon</string>
+    <string name="cd_water">Water bowl</string>
+    <string name="cd_arrow">Open details</string>
+
+    <!-- Profile -->
+    <string name="cd_profile_avatar">Profile picture</string>
+    <string name="edit_name">Edit name</string>
+    <string name="profile_name">Jack Thomas</string>
+    <string name="profile_email">Jack1@gmail.com</string>
+    <string name="my_pet_id">My Pet ID</string>
+    <string name="pet_name">Dexter</string>
+    <string name="pet_breed">Labrador</string>
+    <string name="adopted">Adopted</string>
+    <string name="stat_age">Age</string>
+    <string name="stat_age_value">3 Years</string>
+    <string name="stat_gender">Gender</string>
+    <string name="stat_gender_value">Male</string>
+    <string name="stat_weight">Weight</string>
+    <string name="stat_weight_value">43 kg</string>
+    <string name="appointments">Appointments</string>
+    <string name="date_aug08">AUG\n08</string>
+    <string name="appt_grooming">Grooming</string>
+    <string name="time_3pm">3:00 PM</string>
+    <string name="date_oct28">OCT\n28</string>
+    <string name="appt_vet">Veterinarian</string>
+    <string name="time_10am">10:00 AM</string>
+    <string name="reminders">Reminders</string>
+    <string name="rem_walk_dexter">Walk Dexter</string>
+    <string name="rem_times">Daily  8:15 AM   2:45 PM   7:00 PM</string>
 </resources>
