@@ -72,7 +72,7 @@
     <string name="cd_media_image">Media illustration</string>
 
     <!-- Tasks -->
-    <string name="tasks_title">Today&apos;s Tasks</string>
+    <string name="tasks_title">Today\'s Tasks</string>
     <string name="feed_pet">Feed your pet</string>
     <string name="schedule">Schedule</string>
     <string name="walk_pet">Walk your pet</string>

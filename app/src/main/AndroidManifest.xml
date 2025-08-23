@@ -11,6 +11,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme._1stProject">
+
+        <activity
+            android:name=".OnboardScreen01"
+            android:exported="false" />
+
         <activity
             android:name=".PetProfile"
             android:exported="false" />

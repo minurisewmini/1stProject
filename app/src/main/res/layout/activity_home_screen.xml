@@ -61,7 +61,7 @@
                     android:id="@+id/btnAdd"
                     android:layout_width="48dp"
                     android:layout_height="48dp"
-                    android:src="@drawable/plus"
+                    android:src="@android:drawable/ic_input_add"
                     android:contentDescription="@string/add"
                     android:background="@android:color/transparent"
                     app:tint="@null"
